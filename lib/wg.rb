@@ -1,7 +1,7 @@
 require "wg/version"
 
 module Wg
-  def self.hi
-    puts "Hello world!"
+  def self.hi(person)
+    puts "Hello, #{person}!"
   end
 end
