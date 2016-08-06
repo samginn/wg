@@ -10,7 +10,7 @@ wg is packaged as a ruby gem, but due to the limitations of the shell, you also 
 
 First, install wg with: `gem install wg`
 
-Then, add ```function wg { cd `wg`; }``` to your `.bashrc` file (or whatever shell's rc file you use).
+Then, add ```function wg { cd `wg`; }``` to your `.bashrc` file (or whatever shell's rc file you use (`.zshrc`, etc...)).
 
 Happy wg'ing!
 
