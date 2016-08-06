@@ -1,14 +1,18 @@
 # wg
 
-wg is a neat little command line tool to manage git(hub|lab) projects locally.
+wg is a neat little command line tool to manage your workspace. It allows you to easily manage git(hub|lab) projects locally.
 
 It is inspired by [Jeff Dickey's gh tool](https://github.com/dickeyxxx/gh).
 
 ## Installation
 
-wg is packaged as a ruby gem. All you have to do is:
+wg is packaged as a ruby gem, but due to the limitations of the shell, you also need to add an alias to your shell's config.
 
-`gem install wg` and voila, you have the `wg` command at your disposal.
+First, install wg with: `gem install wg`
+
+Then, add ```function wg { cd `wg`; }``` to your `.bashrc` file (or whatever shell's rc file you use).
+
+Happy wg'ing!
 
 ## Usage
 

@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'wg'
-
-puts Wg.hi(ARGV[0])

@@ -1,7 +1,7 @@
 require "wg/version"
 
 module Wg
-  def self.hi(person)
-    puts "Hello, #{person}!"
+  def self.hi()
+    puts("lib")
   end
 end
