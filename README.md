@@ -10,7 +10,7 @@ wg is packaged as a ruby gem, but due to the limitations of the shell, you also 
 
 First, install wg with: `gem install wg`
 
-Then, add ```function wg { cd `wg`; }``` to your `.bashrc` file (or whatever shell's rc file you use (`.zshrc`, etc...)).
+Then, add `function wg { resp="$(wg_r $@)"; if [[ ${resp:0:1} == "!" ]] ; then cd "${resp:1}"; else echo "${resp}"; fi }` to your `.bashrc` file (or whatever shell's rc file you use (`.zshrc`, etc...)).
 
 Happy wg'ing!
 
@@ -20,8 +20,8 @@ Happy wg'ing!
 
 ### Options
 
-- `-h --help` displays a delightful help message.
 - `-l --lab` will clone from gitlab instead of github or open `~/w/g/l/user/repo`
+- `-h --help` displays a delightful help message.
 
 ## Contributing
 

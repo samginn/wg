@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+require 'wg'
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: wg [options] USERNAME/REPONAME"
+  opts.separator ""
+
+  opts.on("-l", "--lab", "Uses gitlab and ~/w/g/l") do |l|
+    options[:lab] = l
+  end
+
+  opts.on("-h", "--help", "Prints this help dialog.") do
+    puts opts
+    exit
+  end
+end.parse!
+
+args = ARGV
+
+# If there are no options given, just display a nice little message
+if args.length == 0 or args.length > 1 then
+  puts "Welcome to wg - your git workspace assistant. Try: wg --help"
+  exit
+end
+
+# Otherwise, let's enter the regular flow.
+repo = args[0]
+git = options[:lab] ? :gitlab : :github
+directory = Wg.build_directory(repo, git)
+
+# If the directory doesn't exist, clone it first.
+if !Wg.dir_exists?(directory)
+  Wg.clone_repo(repo, git)
+end
+
+# Finally, change directory to the repo
+# The "!" bang tells the function to cd the result.
+puts "!#{directory}"
